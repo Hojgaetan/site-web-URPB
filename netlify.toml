@@ -1,0 +1,11 @@
+# Netlify configuration for Vite + React
+# Ensures the publish directory matches vite.config.ts (outDir: "build")
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # Vite base URL. On Netlify the site is deployed at the root, so keep '/'
+  VITE_BASE = "/"
+
