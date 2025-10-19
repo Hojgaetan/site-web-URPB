@@ -135,6 +135,17 @@ export function Projets({ onNavigate }: ProjetsProps) {
          image: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&utm_source=figma&utm_medium=referral',
          besoin: 'Salle polyvalente, bibliothèque, équipements audiovisuels, animateurs, budget d\'activités'
        },
+   {
+         id: 12,
+         icon: Shield,
+         title: 'Pisciculture communautaire',
+         description: 'Mettre en place des bassins de pisciculture pour diversifier les revenus et renforcer la sécurité alimentaire.',
+         impact: 'Production annuelle de 5+ tonnes de poisson, 20+ emplois directs/indirects',
+         priority: 'Moyenne',
+         status: 'Planification',
+         image: image_925ac374130a154c2d944d5f7807d72665f4bdf9,
+         besoin: 'Construction des bassins, alevins, alimentation, pompes/forage, formation, chaîne du froid'
+       },
   ];
 
   const getPriorityColor = (priority: string) => {
