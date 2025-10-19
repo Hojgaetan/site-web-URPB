@@ -17,18 +17,18 @@ export function Projets({ onNavigate }: ProjetsProps) {
     {
       id: 1,
       icon: GraduationCap,
-      title: 'Transformer le CEM en Lycée',
-      description: 'Permettre aux jeunes de poursuivre leurs études secondaires sans quitter le village.',
+      title: 'Création de Lycée',
+      description: 'Permettre aux jeunes du village et des localités environnantes de poursuivre leurs études secondaires.',
       impact: 'Éducation de 200+ élèves du secondaire',
       priority: 'Haute',
       status: 'En planification',
       image: image_22230d8ec1dff2f8765d24488eaeee0784d12041,
-      besoin: 'Rénovation des bâtiments, équipement pédagogique, formation des enseignants'
+      besoin: 'Rénovation des bâtiments, équipement pédagogique, formation des enseignants, laboratoire scientifique, bibliothèque, salle informatique, construction de toilettes'
     },
     {
       id: 2,
       icon: Book,
-      title: 'Construire une école coranique',
+      title: 'Daara moderne multifonctionel',
       description: 'Offrir un espace dédié à l\'éducation religieuse et culturelle de nos enfants.',
       impact: 'Formation spirituelle de 150+ enfants',
       priority: 'Moyenne',
@@ -40,7 +40,7 @@ export function Projets({ onNavigate }: ProjetsProps) {
       id: 3,
       icon: Heart,
       title: 'Améliorer la case de santé',
-      description: 'Transformer notre case de santé en dispensaire ou centre de santé moderne.',
+      description: 'Transformer notre case de santé en dispensaire ou poste de santé moderne.',
       impact: 'Soins de qualité pour 2000+ habitants',
       priority: 'Haute',
       status: 'Étude en cours',
@@ -93,26 +93,48 @@ export function Projets({ onNavigate }: ProjetsProps) {
     },
     {
       id: 8,
-      icon: Users,
-      title: 'Foyer des jeunes',
-      description: 'Construire un espace de rencontre et d\'activités pour la jeunesse de Brindiago.',
-      impact: 'Espace culturel pour 300+ jeunes',
+      icon: Computer,
+      title: 'Centre de formation aux métiers',
+      description: 'Former les jeunes de la commune et de celles environnantes aux métiers du bâtiment, de l’agriculture, de l’artisanat et du numérique, pour favoriser leur insertion.',
+      impact: 'Insertion professionnelle de 300+ jeunes et création de micro-entreprises',
       priority: 'Moyenne',
       status: 'Planification',
       image: image_25cc1061e2adcff08a2aa6a14d820727b85b6402,
-      besoin: 'Construction, équipements audiovisuels, mobilier'
+      besoin: 'Ateliers équipés, formateurs certifiés, partenariats avec entreprises, kits d’outillage'
     },
     {
       id: 9,
       icon: Trophy,
       title: 'Terrain de football',
-      description: 'Aménager le nouveau terrain de football pour les activités sportives.',
-      impact: 'Infrastructure sportive pour toute la communauté',
+      description: 'Aménager le nouveau terrain de football et un complexe sportif multifonctionnel pour les activités sportives.',
+      impact: 'Infrastructure sportive pour toute la communauté et les communes environnantes',
       priority: 'Basse',
       status: 'Terrain acquis',
       image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
       besoin: 'Nivellement, gazon, buts, gradins'
-    }
+    },
+    {
+      id: 10,
+      icon: Users,
+      title: 'Maison d’hôte',
+      description: 'Construire une maison d’hôte pour accueillir les visiteurs et générer des revenus pour la communauté.',
+      impact: 'Capacité d’hébergement de 10+ chambres et retombées économiques locales',
+      priority: 'Moyenne',
+      status: 'Recherche de financement',
+      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
+      besoin: 'Construction, aménagement intérieur, mobilier, raccordements eau/électricité, gestion et entretien'
+    },
+   {
+         id: 11,
+         icon: Users,
+         title: 'Espace culturel pour tous',
+         description: 'Création d\'un espace culturel pour tous pour la commune et des localités environnantes.',
+         impact: 'Accès à des activités artistiques, sportives et culturelles pour 200+ jeunes et adultes',
+         priority: 'Moyenne',
+         status: 'Planification',
+         image: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&utm_source=figma&utm_medium=referral',
+         besoin: 'Salle polyvalente, bibliothèque, équipements audiovisuels, animateurs, budget d\'activités'
+       },
   ];
 
   const getPriorityColor = (priority: string) => {
@@ -146,10 +168,10 @@ export function Projets({ onNavigate }: ProjetsProps) {
                 Nos Projets
               </h1>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                9 projets ambitieux pour transformer Brindiago et créer un avenir prospère pour notre communauté. 
+                Des projets ambitieux pour transformer Brindiago et créer un avenir prospère pour notre communauté.
                 Chaque initiative répond à un besoin réel identifié par nos habitants.
               </p>
-              <Button 
+              <Button
                 className="bg-[#F97316] text-white hover:bg-[#EA580C] rounded-full px-8"
                 onClick={() => onNavigate('soutenir')}
               >
@@ -192,8 +214,8 @@ export function Projets({ onNavigate }: ProjetsProps) {
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-4">Une vision, des projets concrets</h2>
             <p className="text-green-100 text-lg max-w-3xl mx-auto leading-relaxed">
-              Chaque projet que nous menons répond à un besoin réel de notre communauté. 
-              Ensemble, ils forment une vision cohérente du développement durable de Brindiago, 
+              Chaque projet que nous menons répond à un besoin réel de notre communauté.
+              Ensemble, ils forment une vision cohérente du développement durable de Brindiago,
               alliant tradition et modernité, éducation et santé, spiritualité et technologie.
             </p>
           </div>
@@ -253,15 +275,15 @@ export function Projets({ onNavigate }: ProjetsProps) {
                       </div>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-600 mb-4 leading-relaxed">{projet.description}</p>
-                  
+
                   <div className="space-y-3">
                     <div>
                       <h4 className="text-sm mb-1">Impact attendu</h4>
                       <p className="text-sm text-gray-600">{projet.impact}</p>
                     </div>
-                    
+
                     <div>
                       <h4 className="text-sm mb-1">Besoins identifiés</h4>
                       <p className="text-sm text-gray-600">{projet.besoin}</p>
@@ -275,7 +297,7 @@ export function Projets({ onNavigate }: ProjetsProps) {
       </section>
 
       {/* Call to action */}
-      <section 
+      <section
         className="py-16 lg:py-24 relative text-white"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(249, 115, 22, 0.95), rgba(220, 38, 38, 0.95)), url('https://images.unsplash.com/photo-1713164833944-7c1e13aaac55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW5lZ2FsJTIwdmlsbGFnZSUyMGNvbW11bml0eSUyMHBlb3BsZXxlbnwxfHx8fDE3NTg4MDEwODh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral')`,
@@ -286,18 +308,18 @@ export function Projets({ onNavigate }: ProjetsProps) {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl lg:text-6xl mb-8">Ensemble, transformons Brindiago</h2>
           <p className="text-xl text-white/95 mb-8 leading-relaxed">
-            Chaque contribution compte. Que ce soit par un don, un partenariat ou votre expertise, 
+            Chaque contribution compte. Que ce soit par un don, un partenariat ou votre expertise,
             vous pouvez nous aider à concrétiser ces projets qui changeront la vie de notre communauté.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               className="bg-white text-[#F97316] hover:bg-gray-100 rounded-full px-8"
               onClick={() => onNavigate('soutenir')}
             >
               Faire un don
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               className="border-white text-white hover:bg-white hover:text-[#F97316] rounded-full px-8"
               onClick={() => onNavigate('contact')}
             >
