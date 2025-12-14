@@ -7,6 +7,7 @@ import { Projets } from './components/pages/Projets';
 import { Soutenir } from './components/pages/Soutenir';
 import { Actualites } from './components/pages/Actualites';
 import { Contact } from './components/pages/Contact';
+import AdminLayout from './components/admin/AdminLayout';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('accueil');
@@ -30,6 +31,8 @@ export default function App() {
         return <Actualites />;
       case 'contact':
         return <Contact />;
+      case 'admin':
+        return <AdminLayout />;
       default:
         return <Accueil onNavigate={handleNavigate} />;
     }
