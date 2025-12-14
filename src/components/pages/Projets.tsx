@@ -1,4 +1,3 @@
-import image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a from 'figma:asset/4cf7f880c3cc4cfbadbad6906e9a81b920afc94a.png';
 import image_25cc1061e2adcff08a2aa6a14d820727b85b6402 from 'figma:asset/25cc1061e2adcff08a2aa6a14d820727b85b6402.png';
 import image_925ac374130a154c2d944d5f7807d72665f4bdf9 from 'figma:asset/925ac374130a154c2d944d5f7807d72665f4bdf9.png';
 import image_22230d8ec1dff2f8765d24488eaeee0784d12041 from 'figma:asset/22230d8ec1dff2f8765d24488eaeee0784d12041.png';
@@ -6,147 +5,41 @@ import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
-import { GraduationCap, Book, Heart, Zap, Church, Shield, Computer, Users, Trophy } from 'lucide-react';
+import { GraduationCap, Heart, Shield } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { supabase } from '../../lib/supabaseClient';
+
+interface Projet {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  priority: string;
+  status: string;
+  impact: string;
+  besoin: string;
+}
 
 interface ProjetsProps {
   onNavigate: (page: string) => void;
 }
 
 export function Projets({ onNavigate }: ProjetsProps) {
-  const projets = [
-    {
-      id: 1,
-      icon: GraduationCap,
-      title: 'Création de Lycée',
-      description: 'Permettre aux jeunes du village et des localités environnantes de poursuivre leurs études secondaires.',
-      impact: 'Éducation de 200+ élèves du secondaire',
-      priority: 'Haute',
-      status: 'En planification',
-      image: image_22230d8ec1dff2f8765d24488eaeee0784d12041,
-      besoin: 'Rénovation des bâtiments, équipement pédagogique, formation des enseignants, laboratoire scientifique, bibliothèque, salle informatique, construction de toilettes'
-    },
-    {
-      id: 2,
-      icon: Book,
-      title: 'Daara moderne multifonctionel',
-      description: 'Offrir un espace dédié à l\'éducation religieuse et culturelle de nos enfants.',
-      impact: 'Formation spirituelle de 150+ enfants',
-      priority: 'Moyenne',
-      status: 'Recherche de financement',
-      image: 'https://images.unsplash.com/photo-1745683512464-3d20bf25eff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwbW9zcXVlJTIwdHJhZGl0aW9uYWwlMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU4Nzk5NDY3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      besoin: 'Construction du bâtiment, mobilier, recrutement d\'enseignants coraniques'
-    },
-    {
-      id: 3,
-      icon: Heart,
-      title: 'Améliorer la case de santé',
-      description: 'Transformer notre case de santé en dispensaire ou poste de santé moderne.',
-      impact: 'Soins de qualité pour 2000+ habitants',
-      priority: 'Haute',
-      status: 'Étude en cours',
-      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
-      besoin: 'Extension du bâtiment, équipements médicaux, formation du personnel'
-    },
-    {
-      id: 4,
-      icon: Zap,
-      title: 'Électrification rurale',
-      description: 'Raccorder Brindiago au réseau électrique national pour transformer notre économie.',
-      impact: 'Éclairage public et domestique pour tout le village',
-      priority: 'Très haute',
-      status: 'Négociations en cours',
-      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
-      besoin: 'Raccordement au réseau, installation de transformateurs, câblage'
-    },
-    {
-      id: 5,
-      icon: Church,
-      title: 'Grande mosquée et église',
-      description: 'Construire des lieux de culte dignes pour renforcer la cohésion communautaire.',
-      impact: 'Espaces de prière pour toute la communauté',
-      priority: 'Moyenne',
-      status: 'Collecte de fonds',
-      image: 'https://images.unsplash.com/photo-1745683512464-3d20bf25eff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwbW9zcXVlJTIwdHJhZGl0aW9uYWwlMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzU4Nzk5NDY3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      besoin: 'Terrain, matériaux de construction, main d\'œuvre spécialisée'
-    },
-    {
-      id: 6,
-      icon: Shield,
-      title: 'Barrage anti-sel',
-      description: 'Construire un barrage pour protéger nos rizières de l\'intrusion saline.',
-      impact: 'Protection de 50 hectares de terres agricoles',
-      priority: 'Très haute',
-      status: 'Lancement imminent',
-      image: image_925ac374130a154c2d944d5f7807d72665f4bdf9,
-      besoin: 'Études techniques, matériaux de construction, ingénierie spécialisée'
-    },
-    {
-      id: 7,
-      icon: Computer,
-      title: 'Centre polyvalent informatique',
-      description: 'Créer un centre de formation informatique pour préparer nos jeunes au numérique.',
-      impact: 'Formation de 100+ jeunes aux technologies',
-      priority: 'Moyenne',
-      status: 'Recherche de partenaires',
-      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
-      besoin: 'Équipements informatiques, connexion internet, formateurs qualifiés'
-    },
-    {
-      id: 8,
-      icon: Computer,
-      title: 'Centre de formation aux métiers',
-      description: 'Former les jeunes de la commune et de celles environnantes aux métiers du bâtiment, de l’agriculture, de l’artisanat et du numérique, pour favoriser leur insertion.',
-      impact: 'Insertion professionnelle de 300+ jeunes et création de micro-entreprises',
-      priority: 'Moyenne',
-      status: 'Planification',
-      image: image_25cc1061e2adcff08a2aa6a14d820727b85b6402,
-      besoin: 'Ateliers équipés, formateurs certifiés, partenariats avec entreprises, kits d’outillage'
-    },
-    {
-      id: 9,
-      icon: Trophy,
-      title: 'Terrain de football',
-      description: 'Aménager le nouveau terrain de football et un complexe sportif multifonctionnel pour les activités sportives.',
-      impact: 'Infrastructure sportive pour toute la communauté et les communes environnantes',
-      priority: 'Basse',
-      status: 'Terrain acquis',
-      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
-      besoin: 'Nivellement, gazon, buts, gradins'
-    },
-    {
-      id: 10,
-      icon: Users,
-      title: 'Maison d’hôte',
-      description: 'Construire une maison d’hôte pour accueillir les visiteurs et générer des revenus pour la communauté.',
-      impact: 'Capacité d’hébergement de 10+ chambres et retombées économiques locales',
-      priority: 'Moyenne',
-      status: 'Recherche de financement',
-      image: image_4cf7f880c3cc4cfbadbad6906e9a81b920afc94a,
-      besoin: 'Construction, aménagement intérieur, mobilier, raccordements eau/électricité, gestion et entretien'
-    },
-   {
-         id: 11,
-         icon: Users,
-         title: 'Espace culturel pour tous',
-         description: 'Création d\'un espace culturel pour tous pour la commune et des localités environnantes.',
-         impact: 'Accès à des activités artistiques, sportives et culturelles pour 200+ jeunes et adultes',
-         priority: 'Moyenne',
-         status: 'Planification',
-         image: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080&utm_source=figma&utm_medium=referral',
-         besoin: 'Salle polyvalente, bibliothèque, équipements audiovisuels, animateurs, budget d\'activités'
-       },
-   {
-         id: 12,
-         icon: Shield,
-         title: 'Pisciculture communautaire',
-         description: 'Mettre en place des bassins de pisciculture pour diversifier les revenus et renforcer la sécurité alimentaire.',
-         impact: 'Production annuelle de 5+ tonnes de poisson, 20+ emplois directs/indirects',
-         priority: 'Moyenne',
-         status: 'Planification',
-         image: image_925ac374130a154c2d944d5f7807d72665f4bdf9,
-         besoin: 'Construction des bassins, alevins, alimentation, pompes/forage, formation, chaîne du froid'
-       },
-  ];
+  // Correction TS2347 : initialisation explicite du type
+  const [projets, setProjets] = useState([] as Projet[]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchProjets = async () => {
+      setLoading(true);
+      const { data, error } = await supabase.from('projets').select('*').order('id', { ascending: true });
+      if (error) setError(error.message);
+      else setProjets((data ?? []) as Projet[]);
+      setLoading(false);
+    };
+    fetchProjets();
+  }, []);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
@@ -167,6 +60,20 @@ export function Projets({ onNavigate }: ProjetsProps) {
       default: return 'bg-gray-100 text-gray-800';
     }
   };
+
+  // Suppression d'un projet
+  const handleDelete = async (id: number) => {
+    if (!window.confirm('Voulez-vous vraiment supprimer ce projet ?')) return;
+    setError('');
+    setLoading(true);
+    const { error } = await supabase.from('projets').delete().eq('id', id);
+    if (error) setError(error.message);
+    else setProjets((projets: Projet[]) => projets.filter((p: Projet) => p.id !== id));
+    setLoading(false);
+  };
+
+  if (loading) return <div>Chargement des projets...</div>;
+  if (error) return <div>Erreur : {error}</div>;
 
   return (
     <div className="min-h-screen">
@@ -260,7 +167,7 @@ export function Projets({ onNavigate }: ProjetsProps) {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projets.map((projet) => (
+            {projets.map((projet: Projet) => (
               <Card key={projet.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-video">
                   <ImageWithFallback
@@ -272,7 +179,7 @@ export function Projets({ onNavigate }: ProjetsProps) {
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-[#16A34A] rounded-lg flex items-center justify-center mr-4">
-                      <projet.icon className="h-6 w-6 text-white" />
+                      <GraduationCap className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg mb-2">{projet.title}</h3>
@@ -297,8 +204,22 @@ export function Projets({ onNavigate }: ProjetsProps) {
 
                     <div>
                       <h4 className="text-sm mb-1">Besoins identifiés</h4>
-                      <p className="text-sm text-gray-600">{projet.besoin}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {projet.besoin.split(',').map((tag: string) => (
+                          <span key={tag} className="bg-green-200 text-green-800 px-2 py-1 rounded-full text-xs">{tag}</span>
+                        ))}
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="flex justify-end mt-6">
+                    <Button
+                      variant="destructive"
+                      className="bg-red-600 text-white hover:bg-red-800 rounded px-4 py-2 text-sm font-bold"
+                      onClick={() => handleDelete(projet.id)}
+                    >
+                      Supprimer
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
