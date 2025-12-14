@@ -1,15 +1,15 @@
 import image_0f1cb8a0e90633710f1103b0894e93b1e53a2ebd from 'figma:asset/0f1cb8a0e90633710f1103b0894e93b1e53a2ebd.png';
 import image_c6f9996a53725c368ec1adb976c9d79f9f2b6f4c from 'figma:asset/c6f9996a53725c368ec1adb976c9d79f9f2b6f4c.png';
-import image_25cc1061e2adcff08a2aa6a14d820727b85b6402 from 'figma:asset/25cc1061e2adcff08a2aa6a14d820727b85b6402.png';
 import image_d66bbfebbc1acdc9f6a2608b0b4bbbbe5a589bfe from 'figma:asset/d66bbfebbc1acdc9f6a2608b0b4bbbbe5a589bfe.png';
 import image_4d08182c2e6165329b31a6fa041ac521cc7ac01d from 'figma:asset/4d08182c2e6165329b31a6fa041ac521cc7ac01d.png';
 import image_bb00bf204ddf657bd680be33b6a9a45038c851ea from 'figma:asset/bb00bf204ddf657bd680be33b6a9a45038c851ea.png';
 import image_17b05c1508b7a0baf1b90afca6567166348e3058 from 'figma:asset/17b05c1508b7a0baf1b90afca6567166348e3058.png';
-import image_fcd9807e6dd7bddbd28d64d1b4c76b5e54c8c12f from 'figma:asset/fcd9807e6dd7bddbd28d64d1b4c76b5e54c8c12f.png';
+
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowRight, Users, Target, Heart, CheckCircle, Award, Lightbulb } from 'lucide-react';
+import { SupabaseConnectionTest } from '../SupabaseConnectionTest';
 
 interface AccueilProps {
   onNavigate: (page: string) => void;
@@ -83,18 +83,18 @@ export function Accueil({ onNavigate }: AccueilProps) {
                 Agir ensemble pour Brindiago
               </h1>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Nous sommes une organisation communautaire dédiée au développement et à la promotion du village de Brindiago au Sénégal. 
+                Nous sommes une organisation communautaire dédiée au développement et à la promotion du village de Brindiago au Sénégal.
                 À travers des projets concrets et des initiatives durables, nous œuvrons ensemble pour construire un avenir meilleur pour notre communauté.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <Button
                   className="bg-[#16A34A] text-white hover:bg-[#15803D] rounded-full px-8"
                   onClick={() => onNavigate('projets')}
                 >
                   Rejoignez-nous
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="rounded-full px-8 border-[#16A34A] text-[#16A34A] hover:bg-green-50"
                   onClick={() => onNavigate('village')}
                 >
@@ -117,16 +117,16 @@ export function Accueil({ onNavigate }: AccueilProps) {
             <div>
               <h2 className="text-4xl mb-8">À propos de nous</h2>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                L'Union pour la Rénovation et la Promotion de Brindiago (URPB) est une organisation communautaire 
-                axée sur le développement durable de notre village. Nous rassemblons les résidents, la diaspora et les partenaires 
+                L'Union pour la Rénovation et la Promotion de Brindiago (URPB) est une organisation communautaire
+                axée sur le développement durable de notre village. Nous rassemblons les résidents, la diaspora et les partenaires
                 autour d'une vision partagée de progrès et de prospérité.
               </p>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Notre travail couvre l'éducation, la santé, l'agriculture et le développement des infrastructures, créant un changement 
-                positif durable pour plus de 2 000 membres de la communauté. Grâce à la collaboration et à la détermination, nous 
+                Notre travail couvre l'éducation, la santé, l'agriculture et le développement des infrastructures, créant un changement
+                positif durable pour plus de 2 000 membres de la communauté. Grâce à la collaboration et à la détermination, nous
                 construisons l'avenir de Brindiago tout en honorant nos traditions.
               </p>
-              <Button 
+              <Button
                 className="bg-[#16A34A] text-white hover:bg-[#15803D] rounded-full px-8"
                 onClick={() => onNavigate('village')}
               >
@@ -150,7 +150,7 @@ export function Accueil({ onNavigate }: AccueilProps) {
           <div className="text-center mb-16">
             <h2 className="text-4xl mb-4">Avantages pour nos membres</h2>
             <p className="text-blue-100 text-lg max-w-3xl mx-auto leading-relaxed">
-              Quand vous rejoignez l'URPB, vous devenez partie d'une communauté puissante qui œuvre ensemble pour un changement positif. 
+              Quand vous rejoignez l'URPB, vous devenez partie d'une communauté puissante qui œuvre ensemble pour un changement positif.
               Voici quelques-unes des façons dont l'adhésion vous profite ainsi qu'à toute notre communauté.
             </p>
           </div>
@@ -207,14 +207,14 @@ export function Accueil({ onNavigate }: AccueilProps) {
             <div>
               <h2 className="text-4xl mb-8">Faire un don</h2>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                Votre soutien a un impact direct sur nos projets de développement communautaire. Chaque contribution, 
+                Votre soutien a un impact direct sur nos projets de développement communautaire. Chaque contribution,
                 quelle que soit sa taille, nous aide à construire un avenir meilleur pour Brindiago.
               </p>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                De l'éducation et des soins de santé aux infrastructures et à l'agriculture, vos dons financent des 
+                De l'éducation et des soins de santé aux infrastructures et à l'agriculture, vos dons financent des
                 projets concrets qui transforment des vies et renforcent notre communauté pour les générations à venir.
               </p>
-              <Button 
+              <Button
                 className="bg-[#F97316] text-white hover:bg-[#EA580C] rounded-full px-8"
                 onClick={() => onNavigate('soutenir')}
               >
@@ -233,7 +233,7 @@ export function Accueil({ onNavigate }: AccueilProps) {
       </section>
 
       {/* Why Join Us Section */}
-      <section 
+      <section
         className="py-16 lg:py-24 relative text-white"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(22, 163, 74, 0.9), rgba(37, 99, 235, 0.9)), url(${image_c6f9996a53725c368ec1adb976c9d79f9f2b6f4c})`,
@@ -244,10 +244,10 @@ export function Accueil({ onNavigate }: AccueilProps) {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl lg:text-6xl mb-8">Pourquoi nous rejoindre ?</h2>
           <p className="text-xl text-white/95 mb-8 leading-relaxed">
-            Rejoignez une communauté qui fait vraiment bouger les choses. Ensemble, nous construisons un avenir 
+            Rejoignez une communauté qui fait vraiment bouger les choses. Ensemble, nous construisons un avenir
             plus fort et plus prospère pour tous à Brindiago.
           </p>
-          <Button 
+          <Button
             className="bg-white text-[#16A34A] hover:bg-gray-100 rounded-full px-8"
             onClick={() => onNavigate('soutenir')}
           >
@@ -269,27 +269,29 @@ export function Accueil({ onNavigate }: AccueilProps) {
             <div className="border-l-4 border-black pl-6">
               <h3 className="text-xl mb-2">Comment puis-je devenir membre de l'URPB ?</h3>
               <p className="text-gray-600">
-                Rejoindre l'URPB est ouvert à tous ceux qui partagent notre vision pour le développement de Brindiago. 
+                Rejoindre l'URPB est ouvert à tous ceux qui partagent notre vision pour le développement de Brindiago.
                 Vous pouvez devenir membre en nous contactant directement ou en assistant à l'une de nos réunions communautaires.
               </p>
             </div>
             <div className="border-l-4 border-black pl-6">
               <h3 className="text-xl mb-2">Sur quels projets l'URPB travaille-t-elle actuellement ?</h3>
               <p className="text-gray-600">
-                Nous avons neuf projets de développement majeurs incluant les infrastructures éducatives, l'amélioration des soins de santé, 
+                Nous avons neuf projets de développement majeurs incluant les infrastructures éducatives, l'amélioration des soins de santé,
                 l'électrification et les initiatives de protection agricole.
               </p>
             </div>
             <div className="border-l-4 border-black pl-6">
               <h3 className="text-xl mb-2">Comment les dons sont-ils utilisés ?</h3>
               <p className="text-gray-600">
-                Tous les dons vont directement vers nos projets de développement communautaire. Nous maintenons une transparence totale 
+                Tous les dons vont directement vers nos projets de développement communautaire. Nous maintenons une transparence totale
                 avec des rapports financiers réguliers montrant exactement comment les fonds sont alloués et utilisés.
               </p>
             </div>
           </div>
         </div>
       </section>
+
+      <SupabaseConnectionTest />
     </div>
   );
 }
