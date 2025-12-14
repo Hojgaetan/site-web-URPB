@@ -19,6 +19,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     { id: 'projets', label: 'Nos Projets' },
     { id: 'actualites', label: 'Actualités' },
     { id: 'contact', label: 'Contact' },
+    // { id: 'admin', label: 'Admin' }, // supprimé du menu
   ];
 
   const handleNavigate = (page: string) => {
@@ -30,7 +31,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
     <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div 
+          <div
             className="cursor-pointer flex items-center gap-3"
             onClick={() => handleNavigate('accueil')}
           >
@@ -56,7 +57,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                 {item.label}
               </button>
             ))}
-            <Button 
+            <Button
               className="bg-[#F97316] text-white hover:bg-[#EA580C] rounded-full px-6"
               onClick={() => handleNavigate('soutenir')}
             >
@@ -86,7 +87,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
                     {item.label}
                   </button>
                 ))}
-                <Button 
+                <Button
                   className="bg-[#F97316] text-white hover:bg-[#EA580C] rounded-full mx-4 mt-4"
                   onClick={() => handleNavigate('soutenir')}
                 >
