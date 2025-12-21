@@ -9,7 +9,6 @@ import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { ArrowRight, Users, Target, Heart, CheckCircle, Award, Lightbulb } from 'lucide-react';
-import { SupabaseConnectionTest } from '../SupabaseConnectionTest';
 
 interface AccueilProps {
   onNavigate: (page: string) => void;
@@ -291,7 +290,7 @@ export function Accueil({ onNavigate }: AccueilProps) {
         </div>
       </section>
 
-      <SupabaseConnectionTest />
+
     </div>
   );
 }
